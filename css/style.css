@@ -1,0 +1,1190 @@
+@charset "utf-8";
+
+:root {
+    /* School Colors(MCL) */
+
+    /* 情報ビジネス＆デザイン */
+    --color-school-1:#00A3E8;
+
+    /* 外語観光＆ブライダル */
+    --color-school-2:#6A2DA8;
+
+    /* 医療福祉スポーツ */
+    --color-school-3:#E6007E;
+
+    /* 公務員法律 */
+    --color-school-4:#F15A24;
+
+    /* ペットワールド */
+    --color-school-5:#FBBE00;
+
+    /* 医療大学校 */
+    --color-school-6:#003A70;
+
+    /* 菜園調理師 */
+    --color-school-7:#39B54A;
+
+    /* MCLグループ */
+    --color-group:#00AEEF;
+}
+
+/* =========================================================
+   ベース（スマホ〜共通）
+   モバイルファースト
+========================================================= */
+
+/* 全体の基本設定 */
+html,body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #333;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------------------------
+   1. ヘッダー（スマホ）
+------------------------------------ */
+.site-header {
+  width: 100%;
+  background: #f5f5f5; /* 薄いグレー */
+  color: #006E54; /* 緑 */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-sp {
+  display: flex;
+  align-items: center;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+}
+
+.logo-area img {
+  width: 100%;
+  height: auto;
+}
+
+/* PCナビはスマホでは非表示 */
+.nav-pc {
+  display: none;
+}
+
+/* ハンバーガー */
+.hamburger {
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: #006E54;
+  cursor: pointer;
+}
+
+/* スマホメニュー本体 */
+.sp-menu {
+  position: fixed;
+  right: -70%;
+  top: 0;
+  width: 70%;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+  transition: right 0.35s ease;
+}
+
+/* メニュー内テキスト */
+.sp-menu a {
+  padding: 18px 24px;
+  font-size: 18px;
+  color: #006E54;
+  text-decoration: none;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* 開いたときの状態 */
+.sp-menu.active {
+  right: 0;
+}
+
+/* オーバーレイ */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  z-index: 900;
+}
+
+.menu-overlay.active {
+  display: block;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.close-btn img {
+  width: 26px;
+  height: 26px;
+}
+
+/* =========================================================
+   2. PC表示（768px以上）
+========================================================= */
+@media (min-width: 768px) {
+
+  .header-inner {
+    padding: 12px 32px;
+  }
+
+  .logo-area img {
+    width:200px;
+  }
+
+  /* PCではハンバーガー非表示 & PCナビ表示 */
+  .hamburger,
+  .nav-sp {
+    display: none;
+  }
+
+  .nav-pc {
+    display: block;
+  }
+
+  .nav-pc ul {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-pc a {
+    text-decoration: none;
+    color: #006E54;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .nav-pc a:hover {
+    opacity: 0.7;
+  }
+}
+
+/* メインビジュアル～sp～ */
+.main-visual {
+  position: relative;
+  width: 100%;
+  height: 55vh;
+  overflow: hidden;
+}
+
+.mv-bg-sp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.mv-bg-pc {
+  display: none;
+}
+
+.mv-inner {
+  max-width: 90%;
+  position: relative;
+  z-index: 2;
+  padding-top: 25vh;
+}
+
+.mv-title {
+  font-size: 50px;
+  line-height: 1.4;
+  margin: 8px 0 12px;
+  font-weight: 700;
+  color: #006E54;
+}
+
+.mv-month
+.mv-free
+.mv-date {
+  font-size: 14px;
+  margin: 4px 0;
+ 
+}
+
+.mv-badge-group {
+  position: absolute;
+  top: 10%;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 10;
+}
+
+.mv-badge {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 18px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #006E54;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.mv-badge::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: -3px;
+  width: 0;
+  height: 0;
+  border-top: 20px solid #ffffff;
+  border-right: 25px solid transparent;
+  transform: rotate(155deg);
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
+}
+
+/* メインビジュアル～pc～ */
+@media (min-width: 768px) {
+  .main-visual {
+    height: 75vh;
+    text-align: left;
+    justify-content: flex-start;
+    padding-left: 8%;
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  .mv-inner {
+    max-width: 520px;
+    position: relative;
+    z-index: 2;
+    padding-top: 20vh;
+  }
+
+  .mv-bg-pc {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  }
+
+  .mv-bg-sp {
+    display: none;
+  }
+
+  .mv-title {
+    color: #036f6d;
+    font-size: 65px;
+  }
+
+  .mv-month
+  .mv-free
+  .mv-date {
+    font-size: 20px;
+  }
+
+  .mv-badge-group {
+    position: absolute;
+    top: 10px;
+    right: 280px;
+    gap: 24px;
+    z-index: 1000;
+    display: flex;
+  }
+
+  .mv-badge {
+    width: 150px;
+    height: 150px;
+    font-size: 18px;
+    padding: 18px;
+    background: #ffffff;
+
+    position: relative;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 700;
+    color: #006E54;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  }
+
+  .mv-badge::after {
+    bottom: 10px;
+    left: -5px;
+    border-top: 20px solid #ffffff;
+    border-right: 30px solid transparent;
+
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    transform: rotate(155deg);
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+  }
+}
+
+/* -----------------------------
+   オープンユニバーシティとは
+------------------------------ */
+.about {
+  padding: 70px 20px;
+  background: #f8fdfc; /* やさしい薄ミント */
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 28px;
+  color: #006E54;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+.about h2 span {
+  position: relative;
+  z-index: 2;
+}
+
+/* タイトルの下のライン */
+.about h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 90%;
+  height: 3px;
+  background: #cdeaf5; /* MCLグループカラー */
+  border-radius: 2px;
+}
+
+.about p {
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.9;
+  font-size: 16px;
+  color: #333;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .about h2 {
+    font-size: 32px;
+  }
+  .about p {
+    font-size: 18px;
+  }
+}
+
+/* ================================
+   講座一覧（共通：スマホ）
+================================ */
+.kouza-list-section {
+  padding: 40px 0;
+}
+
+.kouza-itiran {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.kouza-itiran span {
+  font-size: 28px;
+  color: #006E54;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+.kouza-itiran span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 90%;
+  height: 3px;
+  background: #cdeaf5; /* MCLグループカラー */
+  border-radius: 2px;
+}
+
+/* --- カードの一覧 --- */
+.kouza-list {
+  display: grid;
+  grid-template-columns: 1fr; /* スマホは1列 */
+  gap: 16px;
+  padding: 0 20px;
+}
+
+/* --- カード本体 --- */
+.kouza-card {
+  display: block;
+  background: #fff;
+  padding: 16px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  border-left: 14px solid #00AEEF; /* とりあえずグループカラー、後で学校色に変わる */
+
+  border-top: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.12);
+  transition: transform .2s ease;
+}
+
+.kouza-card:hover {
+  transform: translateY(-3px);
+}
+
+.kouza-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.kouza-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* ================================
+   PC（768px〜）
+================================ */
+@media (min-width: 768px) {
+  .kouza-list-section {
+    padding: 60px 0;
+  }
+
+  .kouza-itiran span {
+    font-size: 32px;
+  }
+
+  .kouza-list {
+    grid-template-columns: repeat(3, 1fr); /* PCは3列 */
+    gap: 24px;
+    padding: 0 40px;
+  }
+
+  .kouza-card {
+    padding: 20px 22px;
+    border-radius: 12px;
+  }
+
+  .kouza-card h3 {
+    font-size: 22px;
+  }
+
+  .kouza-card p {
+    font-size: 15px;
+  }
+}
+
+.kouza-card h3,
+.lecture-title {
+  display: block;
+}
+
+.kouza-card h3 span,
+.lecture-title span {
+  display: block;
+}
+
+/* ================================
+   学校カラー反映（カード左線の色）
+================================ */
+.kouza-card.school-1 { border-left-color: var(--color-school-1); }
+.kouza-card.school-2 { border-left-color: var(--color-school-2); }
+.kouza-card.school-3 { border-left-color: var(--color-school-3); }
+.kouza-card.school-4 { border-left-color: var(--color-school-4); }
+.kouza-card.school-5 { border-left-color: var(--color-school-5); }
+.kouza-card.school-6 { border-left-color: var(--color-school-6); }
+.kouza-card.school-7 { border-left-color: var(--color-school-7); }
+
+/* 講座一覧の白い内箱 */
+.kouza-card .inner-box {
+  background: #fff;
+  padding: 15px 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* カード全体（淡い学校カラー背景＋左線はそのまま） */
+.kouza-card {
+  padding: 12px;
+  border-radius: 14px;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ＝＝＝＝ school 色の薄い背景 ＝＝＝＝ */
+/* 下地の白（チェック柄を遮断する壁） */
+.kouza-card {
+  background-color: #fff !important;
+}
+
+
+.school-1 { background-color: rgb(229, 243, 250) !important; }
+.school-2 { background-color: rgb(243, 234, 252) !important; }
+.school-3 { background-color: rgb(248, 233, 241) !important; }
+.school-4 { background-color: rgb(244, 221, 213) !important; }
+.school-5 { background-color: rgb(249, 241, 218) !important; }
+.school-6 { background-color: rgb(219, 236, 252) !important; }
+.school-7 { background-color: rgb(218, 248, 222) !important; }
+
+/* ================================
+   講座紹介（カードデザイン）
+================================ */
+.detail-section h2 span{
+  font-size: 28px;
+  color: #006E54;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+.detail-section h2 span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 90%;
+  height: 3px;
+  background: #cdeaf5; /* MCLグループカラー */
+  border-radius: 2px;
+}
+
+.school-detail {
+  background: #fff;
+  border-left: 14px solid #00AEEF; /* 初期値（後で学校カラーに上書きされる） */
+  border-radius: 14px;
+  padding: 28px 22px;
+  margin: 30px auto;
+  max-width: 900px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.10);
+  display: flex;
+  flex-direction: column;
+}
+
+/*  */
+.detail-body {
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px 18px;
+  margin: 10px 0 25px 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* --- 学校名（大きく） --- */
+.school-name {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #006E54;
+}
+
+/* --- 講座タイトル（上下2段） --- */
+.lecture-title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+/* --- サブタイトル --- */
+.subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 18px;
+}
+
+/* --- 説明文 --- */
+.desc {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* --- そのほかの詳細情報 --- */
+.school-detail p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+/* --- 補足説明（memo） --- */
+.memo {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* ================================
+   お申し込みボタン
+================================ */
+.apply-btn-wrap {
+  margin-top: auto;
+  text-align: center;
+}
+
+.aooly-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 50px;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.2s ease;
+}
+
+.aooly-btn:hover {
+  opacity: 0.85;
+}
+
+/* --- ボタンの学校カラー（既存の .btn-color1 〜 7 を使う） --- */
+.btn-color1 { background: var(--color-school-1); }
+.btn-color2 { background: var(--color-school-2); }
+.btn-color3 { background: var(--color-school-3); }
+.btn-color4 { background: var(--color-school-4); }
+.btn-color5 { background: var(--color-school-5); }
+.btn-color6 { background: var(--color-school-6); }
+.btn-color7 { background: var(--color-school-7); }
+
+/* ================================
+   カード左線を学校カラーに変更
+================================ */
+.school1 { border-left-color: var(--color-school-1) !important; }
+.school2 { border-left-color: var(--color-school-2) !important; }
+.school3 { border-left-color: var(--color-school-3) !important; }
+.school4 { border-left-color: var(--color-school-4) !important; }
+.school5 { border-left-color: var(--color-school-5) !important; }
+.school6 { border-left-color: var(--color-school-6) !important; }
+.school7 { border-left-color: var(--color-school-7) !important; }
+
+@media screen and (max-width:767px) {
+.detail-section {
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+  .school-detail {
+    margin-bottom: 24px;
+  }
+}
+
+/* PCは少し余白広め */
+@media (min-width: 768px) {
+  .detail-section h2 span {
+    font-size: 32px;
+  }
+
+  .school-detail {
+    padding: 32px 32px;
+  }
+
+  .lecture-title {
+    font-size: 26px;
+  }
+
+  .desc {
+    font-size: 17px;
+  }
+}
+
+/* --- 2段タイトル（強制改行） --- */
+.lecture-title .title-top,
+.lecture-title .title-bottom {
+  display: block;      /* ← 縦に並べる */
+  line-height: 1.4;
+}
+
+/* デザイン調整（お好み） */
+.lecture-title .title-top {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.lecture-title .title-bottom {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* ===== PCのとき講座紹介を2列にする ===== */
+@media (min-width: 768px) {
+  .detail-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px; /* カード同士の間隔 */
+    padding: 0 40px;
+  }
+
+  /* カードの幅が自然になるよう追加 */
+  .school-detail {
+    margin: 0; /* 2列にするため中央寄せを解除 */
+    max-width: 100%; /* カラム幅いっぱい */
+  }
+}
+
+/* タイトルだけは2列レイアウトに巻き込ませない */
+.detail-heading {
+  grid-column: 1 / -1; /* 2列ぶち抜き */
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.school1 { color: var(--color-school-1) !important; }
+.school2 { color: var(--color-school-2) !important; }
+.school3 { color: var(--color-school-3) !important; }
+.school4 { color: var(--color-school-4) !important; }
+.school5 { color: var(--color-school-5) !important; }
+.school6 { color: var(--color-school-6) !important; }
+.school7 { color: var(--color-school-7) !important; }
+
+/* 下地の白（チェック柄を遮断する壁） */
+.school-detail {
+  background-color: #fff !important;
+}
+
+/* 各学校の淡い背景（上に塗る半透明カラー） */
+.school-detail.school1 { background-color: rgb(229, 243, 250) !important; }
+.school-detail.school2 { background-color: rgb(243, 234, 252) !important; }
+.school-detail.school3 { background-color: rgb(248, 233, 241) !important; }
+.school-detail.school4 { background-color: rgb(244, 221, 213) !important; }
+.school-detail.school5 { background-color: rgb(249, 241, 218) !important; }
+.school-detail.school6 { background-color: rgb(219, 236, 252) !important; }
+.school-detail.school7 { background-color: rgb(218, 248, 222) !important; }
+
+.school-detail p,
+.school-detail .desc,
+.school-detail .subtitle,
+.school-detail p span,
+.school-detail strong {
+  color: #000;
+}
+
+.detail-full {
+  grid-column: 1/-1;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* ================================
+   受講までの流れ（Flow）
+================================ */
+.apply-flow {
+  padding: 60px 20px;
+  text-align: center;
+  margin-top: 45px;
+}
+
+.apply-flow h2 {
+  font-size: 28px;
+  color: #006E54;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.apply-flow h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  margin: 0 auto;
+  width: 90%;
+  height: 3px;
+  background: #cdeaf5;
+  border-radius: 2px;
+}
+
+/* --- 各ステップの白い箱 --- */
+.flow-block {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+  padding: 26px 20px;
+  margin: 0 auto 32px;
+  max-width: 600px;
+}
+
+.flow-step-label {
+  font-size: 18px;
+  font-weight: 700;
+  color: #006E54;
+  margin-bottom: 6px;
+}
+
+.flow-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.flow-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* --- 矢印 --- */
+.flow-arrow {
+  font-size: 26px;
+  color: #4edb99;
+  margin: -10px 0 24px;
+}
+
+/* PCでは少し余白広く */
+@media (min-width: 768px) {
+  .apply-flow {
+    padding: 80px 20px;
+    margin-top: 55px;
+  }
+  .flow-block {
+    padding: 32px 28px;
+    max-width: 700px;
+  }
+  .flow-title {
+    font-size: 24px;
+  }
+}
+
+/* ================================
+    アクセス（カードデザイン）
+================================ */
+.access-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* ★ここを“白いカード”にする */
+.map-area {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* 中の地図画像を角丸＋影 */
+.map-area img {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* タイトル */
+.access-title {
+  font-size: 28px;
+  color: #006E54;
+  margin-bottom: 30px;
+  position: relative;
+  display: block;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.access-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  margin: 0 auto;
+  width: 40%;
+  height: 3px;
+  background: #cdeaf5;
+  border-radius: 2px;
+}
+
+/*  pcでちょい太め */
+@media (min-width:768px) {
+  .access-title {
+    font-size: 32px;
+  }
+}
+
+/* 注意書き */
+.parking-info {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+  margin-top: 30px;
+  background: #d8f6f1be;
+  border-radius: 10px;
+}
+
+/*==========================
+  お問い合わせ
+==========================*/
+.contact-section {
+  padding: 60px 20px;
+  background: #ffffff;
+  text-align: center;
+}
+
+/* 上のグレーの帯（見出しバー） */
+.contact-header-box {
+  background: #e5e5e5;
+  padding: 12px 0;
+  margin-bottom: 40px;
+}
+
+.contact-header-box h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+}
+
+.contact-note {
+ background: rgba(223, 248, 245, 0.471);
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #2b3a3a;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* 説明文（ご質問やお問い合わせは…） */
+.contact-note {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+
+.contact-inner {
+    margin-top: 20px;
+}
+
+.contact-office {
+    font-size: 24px;
+}
+
+.contact-tell,
+.contact-mail {
+  font-size: 18px;
+}
+
+@media (min-width:768px) {
+  /* 中央の内容 */
+.contact-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-office {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #000;
+  margin-top: 30px;
+}
+
+.contact-tell,
+.contact-mail {
+  font-size: 24px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* 下との余白（フッターと離す） */
+.contact-section {
+  margin-bottom: 80px;
+}
+}
+
+/* ============================
+      Footer（共通）
+============================ */
+.footer {
+  background: #fff;
+  padding: 30px 20px;
+  border-top: 1px solid #e5e5e5;
+}
+.footer-inner {
+  display: flex;
+  flex-direction: column;     /* ←スマホは縦 */
+  align-items: center;
+  gap: 22px;
+  text-align: center;
+}
+
+/* ロゴ */
+.footer-left img {
+  width: 160px;
+  height: auto;
+}
+
+/* メニュー */
+.footer-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav li {
+  margin: 4px 0;
+}
+
+.footer-nav a {
+  color: #333;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.footer-nav a:hover {
+  opacity: 0.7;
+}
+
+/* ボタン */
+.footer-link {
+  display: inline-block;
+  padding: 8px 22px;
+  background: #BFE9E3;     /* ミントグリーン */
+  color: #006E54;
+  border-radius: 24px;
+  font-size: 15px;
+  text-decoration: none;
+  border: 1px solid #8dd6ca;
+  font-weight: 600;
+}
+.footer-mcl-btn:hover {
+  opacity: 0.85;
+}
+
+/* ============================
+      PC 表示（横並び）
+============================ */
+@media (min-width: 768px) {
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-direction: row;       /* ←横並びに変更 */
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 28px;
+  }
+
+  .footer-nav li {
+    margin: 0;
+  }
+}
+
+body {
+  --size: 40px; /* ギンガムの大きさ */
+
+  background-image:
+    linear-gradient(90deg, rgba(211, 253, 245, 0.625) 50%, transparent 50%),
+    linear-gradient(rgba(214, 249, 247, 0.679) 50%, transparent 50%);
+ 
+  background-size: var(--size) var(--size);
+  background-repeat: repeat;
+  background-color: white;
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 159, 233, 0.121),  /* 1:青 */
+    rgba(143,115,201,0.121), /* 2:紫 */
+    rgba(230,68,152,0.121),  /* 3:ピンク */
+    rgba(242,140,45,0.121),  /* 4:オレンジ */
+    rgba(245,196,0,0.121),   /* 5:黄 */
+    rgba(16,57,122,0.121),   /* 6:濃紺 */
+    rgba(58,181,74,0.121)    /* 7:緑 */
+  );
+}
+
+@media screen and (max-width:768px) {
+    body {
+        margin: 0 auto;
+       max-width: 430px;
+       background-color: inherit;
+    }
+}
+
+
+
